@@ -1,0 +1,50 @@
+
+$(function() {
+	
+	function preload(image) {
+	        (new Image()).src = image;
+	}
+	
+	function str_reverse(string){
+		return string.split("").reverse().join("");
+	}
+	
+	function strip_file_ext(filename) {
+		var rname = str_reverse(filename);
+		var pos = rname.indexOf('.') + 1;
+		
+		var subs = rname.substring(pos, rname.length);
+		
+		return str_reverse(subs);
+	}
+	
+	function get_file_ext(filename) {
+		var rname = str_reverse(filename);
+		var pos = rname.indexOf('.') + 1;
+		
+		return str_reverse(rname.substring(0, pos));
+	}
+		
+	$("img[data-activeswap]").each(function () {
+			
+			var fname = $(this).attr('src');
+			
+			var path = strip_file_ext(fname);
+			var ext = get_file_ext(fname);
+			
+			var activePath = path + '_active' + ext;
+			
+			preload(activePath);
+			
+			
+			$(this).mouseover(function() {
+				$(this).attr('src', activePath);				
+			});
+			
+			$(this).mouseout(function() {
+				$(this).attr('src', fname);
+			});
+	});
+	
+	
+});
