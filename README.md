@@ -15,7 +15,7 @@ For example, you could have "home_link.png" and "home_link_active.png"
 
 Add the attribute "data-activeswap=true' to the image tag on your website.
 
-For example, <img src="images/home_link.png" data-activeswap="true" />
+For example, <pre> <img src="images/home_link.png" data-activeswap="true" /> </pre>
 
 
 Hope you enjoy!
